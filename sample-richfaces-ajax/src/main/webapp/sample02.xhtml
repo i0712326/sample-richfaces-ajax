@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>Sample 02 for Command Button</title>
+	<style>
+		.outputPanel {
+			font-weight: bold;
+		}
+	</style>
+</h:head> 
+<body>
+    <rich:panel>
+        <f:facet name="header">
+        Sample 02 for command button
+        </f:facet>
+		<h:form id="form01">
+			<h:panelGrid columns="3">
+				<h:outputLabel value="Message : " for="msgbox"/>
+				<h:inputText id="msgbox" value="#{sampleBean.sample.message}"/>
+				<h:commandButton value="submit" action="#{sampleBean.submit()}"  render="out01" execute="@form" />
+			</h:panelGrid>
+		</h:form>
+		<br />
+	    <a4j:outputPanel id="out01">
+	        <h:outputText value="#{sampleBean.sample.message}" 
+	        	rendered="#{not empty sampleBean.sample.message}" 
+	        	styleClass="outputPanel" />
+	    </a4j:outputPanel>
+	    
+	    <h:form id="form02">
+			<h:panelGrid columns="3">
+				<h:outputLabel value="Message : " for="msgbox"/>
+				<h:inputText id="msgbox" value="#{sampleBean.message}"/>
+				<h:commandLink value="submit" action="#{sampleBean.action()}"  render="out02" execute="@form" />
+			</h:panelGrid>
+		</h:form>
+		<br />
+	    <a4j:outputPanel id="out02">
+	        <h:outputText value="#{sampleBean.output}" 
+	        	rendered="#{not empty sampleBean.output}" 
+	        	styleClass="outputPanel" />
+	    </a4j:outputPanel>
+	    
+	    
+	</rich:panel>
+</body> 
+</html>

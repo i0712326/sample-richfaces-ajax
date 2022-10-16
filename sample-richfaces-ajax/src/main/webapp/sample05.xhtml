@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>Sample 05 for Ajax Output Panel</title>
+	<style>
+		.bold {
+			font-weight: bold;		
+		}
+	</style>
+</h:head> 
+<body>
+    <rich:panel>
+        <f:facet name="header">
+        	<h:outputText value="Ajax Output Panel"/>
+        </f:facet>
+		
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputLabel for="msg" value="Message : "/>
+				<h:inputText id="msg" value="#{sampleBean.sample.message}"/>
+				<h:outputLabel for="stat" value="Status : "/>
+				<h:inputText id="stat" value="#{sampleBean.sample.status}"/>
+				<a4j:commandButton value="update" render="output" execute="@form" action="#{sampleBean.doIt()}"/>	
+			</h:panelGrid>
+		</h:form>
+		
+		
+		<a4j:outputPanel layout="block" ajaxRendered="false" id="output">
+			<h:panelGrid columns="4">
+				<h:outputLabel for="output" value="Message : " styleClass="bold"/>
+				<h:outputText value="#{sampleBean.sample.message}"  id="msgout" />
+				<h:outputLabel for="output" value="Status : " styleClass="bold"/>
+				<h:outputText value="#{sampleBean.sample.status}"  id="statusout" />
+			</h:panelGrid>
+			
+			
+		</a4j:outputPanel>
+		
+		
+	</rich:panel>
+</body> 
+</html>

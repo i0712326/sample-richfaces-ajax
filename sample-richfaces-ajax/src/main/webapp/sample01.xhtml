@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>Richface Ajax Sample</title>
+	<style>
+		.bold {
+			font-style: normal;
+			font-weight: bold;
+		}
+	
+	</style>
+</h:head> 
+<body>
+    <rich:panel>
+        <f:facet name="header">
+        This is Richface and Ajax Example
+        </f:facet>
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputLabel for="msgbox" value="Message : "/>
+				<h:inputText value="#{sampleBean.sample.message}" id="msgbox">
+					<a4j:ajax event="blur" render="out" />
+				</h:inputText>
+				<h:outputLabel for="out" value="Output : "/>
+				<h:outputText value="#{sampleBean.sample.message}" id="out"
+					style="word-break: break-all" class="bold"/>
+
+			</h:panelGrid>
+
+		</h:form>
+
+	</rich:panel>
+</body> 
+</html>

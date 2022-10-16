@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>Ajax:status</title>
+</h:head> 
+<body>
+    <rich:panel>
+        <f:facet name="header">
+        	<h:outputText value="Ajax Status"/>
+        </f:facet>
+		<h:form id="form">
+			<h:panelGrid columns="5">
+				<h:outputLabel for="msg" value="Message : "/>
+				<h:inputText id="msg" value="#{sampleBean.message}" />
+				<a4j:commandButton value="action" action="#{sampleBean.action}" execute="@form" status="pState"/>
+				<a4j:commandButton value="reset" action="#{sampleBean.reset}" execute="@form"/>
+				<a4j:status name="pState">
+					<f:facet name="start">
+						<h:outputText value="Processing ..." />
+					</f:facet>
+				</a4j:status>
+			</h:panelGrid>
+		</h:form>
+		<a4j:outputPanel layout="block" ajaxRendered="true">
+			
+			<h:panelGrid columns="2">
+				<h:outputLabel for="output" value="Output Message : "/>
+				<h:outputText id="output" value="#{sampleBean.output}" />
+			
+			</h:panelGrid>
+		</a4j:outputPanel>
+	</rich:panel>
+</body> 
+</html>

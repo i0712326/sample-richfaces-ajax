@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body>
+    <rich:panel>
+        <f:facet name="header">
+			<h:outputText value="Sample 03 for ActionListener"/>
+        </f:facet>
+		<h:form>
+			
+			<h:panelGrid columns="1">
+				<h:commandButton value="Invoke listener method">
+                	<a4j:actionListener listener="#{actionListenerBean.handleActionMethod}"/>
+                <f:ajax render="messages"/>
+            	</h:commandButton>
+			
+			</h:panelGrid>
+			
+		</h:form>
+		 <fieldset>
+            <legend>Messages</legend>
+            <h:messages id="messages"/>
+        </fieldset>
+	</rich:panel>
+</body> 
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head>
+<h:outputStylesheet>
+        .even-row {
+            background-color: #FCFFFE;
+        }
+ 
+        .odd-row {
+            background-color: #ECF3FE;
+        }
+ 
+        .even-row:hover,
+        .odd-row:hover {
+            background-color: #FFEBDA;
+            cursor: pointer;
+        }
+</h:outputStylesheet> 
+<body>
+    <rich:panel>
+        <f:facet name="header">
+	        <h:outputText value="Data Table"/>
+        </f:facet>
+		<h:form>
+		 <rich:dataTable value="#{carBean.cars}" var="car" rows="10" id="table" rowClasses="odd-row, even-row"
+            styleClass="stable">
+           
+            <rich:column>
+                <f:facet name="header">
+                    <h:outputText value="Model" />
+                </f:facet>
+                <h:outputText value="#{car.model}" />
+            </rich:column>
+            <rich:column>
+                <f:facet name="header">
+                    <h:outputText value="Price" />
+                </f:facet>
+                <h:outputText value="#{car.price}" />
+            </rich:column>
+            <rich:column >
+                <f:facet name="header">
+                    <h:outputText value="Maker" />
+                </f:facet>
+                <h:outputText value="#{car.maker}" />
+            </rich:column>
+            <rich:column>
+                <f:facet name="header">
+                    <h:outputText value="Produce " />
+                </f:facet>
+                <h:outputText value="#{car.producedOn}" />
+            </rich:column>
+             <rich:column>
+                <f:facet name="header">
+                    <h:outputText value="Brand" />
+                </f:facet>
+                <h:outputText value="#{car.brand}" />
+            </rich:column>
+            <rich:column>
+                <f:facet name="header">
+                    <h:outputText value="VIN" />
+                </f:facet>
+                <h:outputText value="#{car.vin}" />
+            </rich:column>
+            <rich:column>
+                <f:facet name="header">
+                    <h:outputText value="ENGINE" />
+                </f:facet>
+                <h:outputText value="#{car.en}" />
+            </rich:column>
+        </rich:dataTable>
+		<rich:dataScroller for="table" maxPages="10" stepControls="hide" boundaryControls="hide" fastControls="hide"/>
+		</h:form>
+	</rich:panel>
+</body> 
+</html>
